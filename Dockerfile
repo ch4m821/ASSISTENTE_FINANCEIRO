@@ -8,9 +8,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN mkdir -p /data
-
-ENV DATA_DIR=/data
+# REMOVA estas duas linhas:
+# RUN mkdir -p /data
+# ENV DATA_DIR=/data
 
 EXPOSE 8000
 
