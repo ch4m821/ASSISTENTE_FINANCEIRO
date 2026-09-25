@@ -19,25 +19,26 @@
 
 <body>
 
-    <header class="topo">
-
+   <header class="topo">
         <div>
-
-            <h1>
-                Assistente Financeiro
-            </h1>
-
-            <p>
-                Controle mensal de contas
-            </p>
-
+            <h1>Assistente Financeiro</h1>
+            <p>Controle mensal de contas</p>
         </div>
 
-        <input
-            type="month"
-            id="mesSelecionado"
-        >
-
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <!-- NOVO CAMPO DE "LOGIN" -->
+            <input
+                type="text"
+                id="nomeFamilia"
+                placeholder="Nome da Família"
+                value="FamiliaSilva"
+                title="Digite o nome da sua família para acessar o seu painel"
+            >
+            <input
+                type="month"
+                id="mesSelecionado"
+            >
+        </div>
     </header>
 
 
