@@ -5,20 +5,24 @@ from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
 
-app = Flask(__name__)
+# 1. Definimos a base do projeto primeiro
+BASE_DIR = Path(__file__).resolve().parent
+
+# 2. Forçamos o Flask a usar as pastas corretas, onde quer que ele esteja a correr
+app = Flask(
+    __name__,
+    template_folder=str(BASE_DIR / "templates"),
+    static_folder=str(BASE_DIR / "static")
+)
 
 # =========================================================
 # CONFIGURAÇÃO DO BANCO
 # =========================================================
-
-BASE_DIR = Path(__file__).resolve().parent
-
-# MUDANÇA AQUI: Garante que a pasta 'data' fique dentro de BASE_DIR
 DATA_DIR = BASE_DIR / "data"
-
 DATA_DIR.mkdir(parents=True, exist_ok=True)
-
 DATABASE = DATA_DIR / "financeiro.db"
+
+# ... (Mantenha o resto do código exatamente igual a partir daqui) ...
 
 
 def get_db():
