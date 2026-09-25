@@ -5,9 +5,7 @@ from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
 
-
 app = Flask(__name__)
-
 
 # =========================================================
 # CONFIGURAÇÃO DO BANCO
@@ -15,9 +13,8 @@ app = Flask(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent
 
-DATA_DIR = Path(
-    os.getenv("DATA_DIR", BASE_DIR / "data")
-)
+# MUDANÇA AQUI: Garante que a pasta 'data' fique dentro de BASE_DIR
+DATA_DIR = BASE_DIR / "data"
 
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
