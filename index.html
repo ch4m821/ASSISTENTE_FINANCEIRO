@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Assistente Financeiro</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div>
+
+            <h1>
+                Assistente Financeiro
+            </h1>
+
+            <p>
+                Controle mensal de contas
+            </p>
+
+        </div>
+
+        <input
+            type="month"
+            id="mesSelecionado"
+        >
+
+    </header>
+
+
+    <main class="container">
+
+
+        <!-- CONFIGURAÇÕES -->
+
+        <section class="painel">
+
+            <h2>
+                Configuração do mês
+            </h2>
+
+            <div class="grid-form">
+
+                <div>
+
+                    <label>
+                        Dinheiro em conta
+                    </label>
+
+                    <input
+                        type="number"
+                        id="dinheiroConta"
+                        step="0.01"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Reserva bloqueada
+                    </label>
+
+                    <input
+                        type="number"
+                        id="reservaBloqueada"
+                        step="0.01"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <div>
+
+                    <label>
+                        Limite de gasto
+                    </label>
+
+                    <input
+                        type="number"
+                        id="limiteGasto"
+                        step="0.01"
+                        min="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="salvarConfiguracao"
+                class="btn btn-principal"
+            >
+                Salvar valores
+            </button>
+
+        </section>
+
+
+        <!-- RESUMO -->
+
+        <section class="cards">
+
+            <article class="card">
+
+                <span>
+                    Dinheiro em conta
+                </span>
+
+                <strong id="cardDinheiro">
+                    R$ 0,00
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span>
+                    Total das contas
+                </span>
+
+                <strong id="cardTotal">
+                    R$ 0,00
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span>
+                    Contas pagas
+                </span>
+
+                <strong id="cardPago">
+                    R$ 0,00
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span>
+                    Ainda não pago
+                </span>
+
+                <strong id="cardNaoPago">
+                    R$ 0,00
+                </strong>
+
+            </article>
+
+
+            <article class="card">
+
+                <span>
+                    Restante previsto
+                </span>
+
+                <strong id="cardRestante">
+                    R$ 0,00
+                </strong>
+
+            </article>
+
+
+            <article class="card destaque">
+
+                <span>
+                    Disponível após reserva
+                </span>
+
+                <strong id="cardDisponivel">
+                    R$ 0,00
+                </strong>
+
+            </article>
+
+        </section>
+
+
+        <!-- AVISO -->
+
+        <section
+            id="aviso"
+            class="aviso"
+        >
+        </section>
+
+
+        <!-- NOVA CONTA -->
+
+        <section class="painel">
+
+            <h2>
+                Adicionar conta
+            </h2>
+
+            <form id="formConta">
+
+                <div class="grid-form">
+
+                    <div>
+
+                        <label>
+                            Nome
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomeConta"
+                            placeholder="Ex: Faculdade"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Valor
+                        </label>
+
+                        <input
+                            type="number"
+                            id="valorConta"
+                            step="0.01"
+                            min="0.01"
+                            placeholder="189.00"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <label>
+                            Tipo
+                        </label>
+
+                        <select id="tipoConta">
+
+                            <option value="fixa">
+                                Fixa
+                            </option>
+
+                            <option value="variavel">
+                                Variável
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-principal"
+                >
+                    Adicionar conta
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- CONTAS -->
+
+        <section class="painel">
+
+            <div class="titulo-contas">
+
+                <h2>
+                    Contas do mês
+                </h2>
+
+                <button
+                    id="copiarFixas"
+                    class="btn btn-secundario"
+                >
+                    Carregar fixas do mês anterior
+                </button>
+
+            </div>
+
+
+            <div class="tabela-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Conta
+                            </th>
+
+                            <th>
+                                Valor
+                            </th>
+
+                            <th>
+                                Tipo
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Ações
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="listaContas">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <div
+        id="mensagem"
+        class="mensagem"
+    >
+    </div>
+
+
+    <script src="/static/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+.topo {
+    background: #111827;
+    color: white;
+
+    padding: 25px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.topo h1 {
+    margin-bottom: 5px;
+}
+
+.topo p {
+    opacity: 0.75;
+}
+
+.topo input {
+    padding: 10px;
+
+    border-radius: 8px;
+    border: none;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 30px auto;
+}
+
+.painel {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 14px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.06);
+}
+
+.painel h2 {
+    margin-bottom: 20px;
+}
+
+.grid-form {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(200px, 1fr)
+        );
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 15px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #2563eb;
+    border-color: transparent;
+}
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(190px, 1fr)
+        );
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 12px
+        rgba(0, 0, 0, 0.06);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.card span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.card strong {
+    font-size: 22px;
+}
+
+.card.destaque {
+    border: 2px solid #2563eb;
+}
+
+.btn {
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-principal {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-secundario {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.btn-pagar {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-desmarcar {
+    background: #f59e0b;
+    color: white;
+}
+
+.btn-excluir {
+    background: #dc2626;
+    color: white;
+}
+
+.titulo-contas {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.titulo-contas h2 {
+    margin: 0;
+}
+
+.tabela-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    text-align: left;
+
+    padding: 14px;
+
+    border-bottom:
+        1px solid #e5e7eb;
+}
+
+th {
+    background: #f9fafb;
+}
+
+.status {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-pago {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-nao-pago {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.tipo {
+    font-size: 13px;
+
+    padding: 5px 9px;
+
+    background: #e5e7eb;
+
+    border-radius: 15px;
+}
+
+.acoes {
+    display: flex;
+    gap: 7px;
+
+    flex-wrap: wrap;
+}
+
+.acoes button {
+    font-size: 12px;
+
+    padding: 7px 10px;
+}
+
+.aviso {
+    display: none;
+
+    padding: 18px;
+
+    border-radius: 10px;
+
+    margin-bottom: 25px;
+
+    font-weight: bold;
+}
+
+.aviso.seguro {
+    display: block;
+
+    background: #dcfce7;
+    color: #166534;
+}
+
+.aviso.atencao {
+    display: block;
+
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.aviso.perigo {
+    display: block;
+
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.mensagem {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 15px 20px;
+
+    background: #111827;
+    color: white;
+
+    border-radius: 10px;
+
+    display: none;
+
+    max-width: 350px;
+
+    z-index: 999;
+}
+
+.mensagem.mostrar {
+    display: block;
+}
+
+.sem-contas {
+    text-align: center;
+
+    color: #6b7280;
+
+    padding: 30px;
+}
+
+@media (max-width: 700px) {
+
+    .topo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .titulo-contas {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-secundario {
+        width: 100%;
+    }
+
+}
