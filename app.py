@@ -12,9 +12,8 @@ app = Flask(
     static_folder=str(BASE_DIR / "static")
 )
 
-# =========================================================
 # CONFIGURAÇÃO DO BANCO
-# =========================================================
+
 DATA_DIR = BASE_DIR / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 DATABASE = DATA_DIR / "financeiro.db"
@@ -118,10 +117,8 @@ def obter_dashboard(familia, mes):
     }
     conn.close()
     return resultado
-
-# =========================================================
+    
 # ROTAS E APIS
-# =========================================================
 
 @app.route("/")
 def home():
